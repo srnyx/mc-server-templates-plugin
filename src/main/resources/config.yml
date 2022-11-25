@@ -1,0 +1,29 @@
+# DO NOT CHANGE THIS FILE! IT WILL BREAK YOUR SERVER!
+# DO NOT CHANGE THIS FILE! IT WILL BREAK YOUR SERVER!
+# DO NOT CHANGE THIS FILE! IT WILL BREAK YOUR SERVER!
+
+messages:
+  download: |
+    
+    
+    &a&lThe template is going to attempt to install these plugins:
+    &2%plugins%
+    &a&oIf something goes wrong, you will be notified
+
+  external: |
+    
+    
+    &6&l%plugin%&e&l is not installed!
+    &eYou'll have to manually download it at &6&n%link%&r
+
+  failed: |
+    
+    
+    &4&l%plugin%&c&l failed to install!
+    &cYou'll have to manually download it at &4&n%link%&r
+
+plugins: {}
+
+# DO NOT CHANGE THIS FILE! IT WILL BREAK YOUR SERVER!
+# DO NOT CHANGE THIS FILE! IT WILL BREAK YOUR SERVER!
+# DO NOT CHANGE THIS FILE! IT WILL BREAK YOUR SERVER!
