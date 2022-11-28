@@ -1,0 +1,7 @@
+Messages-To-Hide-Filter:
+- "has registered a listener for org.bukkit.event.entity.EntityCreatePortalEvent on method \"public void com.onarandombox.MultiverseCore.listeners.MVPortalListener.entityPortalCreate(org.bukkit.event.entity.EntityCreatePortalEvent)\", but the event is Deprecated. \"Server performance will be affected\"; please notify the authors"
+- "We are aware of the warning about the deprecated event. There is no alternative that allows us to do what we need to do and performance impact is negligible. It is safe to ignore."
+- "which is not a depend or softdepend of this plugin."
+- "This plugin is not compatible with the version of Minecraft you are using."
+- "Initializing Legacy Material Support. Unless you have legacy plugins and/or data this is a bug!"
+- "does not specify an api-version."

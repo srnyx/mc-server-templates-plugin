@@ -1,0 +1,7 @@
+world-settings:
+  default:
+    merge-radius:
+      item: 3.5
+      exp: 4.0
+    entity-activation-range:
+      tick-inactive-villagers: false

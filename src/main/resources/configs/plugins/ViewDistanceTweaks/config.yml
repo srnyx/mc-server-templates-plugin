@@ -1,0 +1,21 @@
+enabled: true
+reactive-mode-settings:
+  mspt-prediction:
+    history-length: 15
+world-settings:
+  world_nether:
+    simulation-distance:
+      minimum-simulation-distance: 6
+      maximum-simulation-distance: 10
+    view-distance:
+      minimum-view-distance: 8
+      maximum-view-distance: 12
+    chunk-weight: 0.75
+  world_the_end:
+    simulation-distance:
+      minimum-simulation-distance: 5
+      maximum-simulation-distance: 10
+    view-distance:
+      minimum-view-distance: 6
+      maximum-view-distance: 12
+    chunk-weight: 0.5

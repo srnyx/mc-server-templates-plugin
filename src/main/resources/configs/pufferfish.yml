@@ -1,0 +1,6 @@
+dab:
+  enabled: true
+  max-tick-freq: 20
+  activation-dist-mod: 7
+enable-async-mob-spawning: true
+enable-suffocation-optimization: true

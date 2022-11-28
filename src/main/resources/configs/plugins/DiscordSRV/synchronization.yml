@@ -1,0 +1,3 @@
+NicknameSynchronizationEnabled: true
+GroupRoleSynchronizationMinecraftIsAuthoritative: false
+BanSynchronizationDiscordToMinecraft: true

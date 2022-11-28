@@ -1,0 +1,5 @@
+max-saves:
+  join: 20
+  quit: 20
+  death: 30
+  world-change: 15

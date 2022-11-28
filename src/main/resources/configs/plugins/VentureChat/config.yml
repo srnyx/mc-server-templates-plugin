@@ -1,0 +1,28 @@
+antispam:
+  enabled: false
+tellformatto: '&8[&3You &7-> &3{receiver_vault_prefix}{receiver_player_displayname}{receiver_vault_suffix}&8]'
+tellformatfrom: '&8[&3{sender_vault_prefix}{sender_player_displayname}{sender_vault_suffix} &7-> &3You&8]'
+tellformatspy: '&8[&c{sender_player_name} &7-> &c{receiver_player_name}&8]'
+replyformatto: '&8[&3You &7-> &3{receiver_vault_prefix}{receiver_player_displayname}{receiver_vault_suffix}&8]'
+replyformatfrom: '&8[&3{sender_vault_prefix}{sender_player_displayname} &7replies to you&8]'
+replyformatspy: '&8[&c{sender_player_name} &7-> &c{receiver_player_name}&8]'
+# {host} : party hosts name
+# {player} : player name
+partyformat: "&8[&d&l{host}&8] &d{player} &7»"
+ignorechat: true
+emptychannelalert: ""
+guiicon: '&c [...]'
+broadcast:
+  displaytag: '&8[&4&lBROADCAST&8] &c'
+alias: {}
+channels: 
+  Global:
+    color: green
+    chatcolor: white
+    format: '{vault_prefix}{player_displayname}{vault_suffix} &7»'
+  Staff:
+    color: red
+    chatcolor: red
+    alias: staff
+    channel_prefix: '&8[&c&lSTAFF&8] &c'
+    format: '{venturechat_channel_prefix}{vault_prefix}{player_displayname}{vault_suffix} &7»'

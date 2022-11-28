@@ -1,0 +1,17 @@
+hermitcraft:
+  tag: true
+items:
+  player-head-drops: true
+mobs:
+  count-mob-deaths: true
+  more-mob-heads: true
+other:
+  persistent-heads: true
+survival:
+  durability-ping: true
+  nether-portal-coords: true
+  pillager-tools: true
+  track-raw-stats: true
+  track-stats: true
+utilities:
+  spectator-effects: true

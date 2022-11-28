@@ -1,0 +1,7 @@
+anticheat:
+  anti-xray:
+    hidden-blocks:
+    - ancient_debris
+    - nether_gold_ore
+    - nether_quartz_ore
+    max-block-height: 128

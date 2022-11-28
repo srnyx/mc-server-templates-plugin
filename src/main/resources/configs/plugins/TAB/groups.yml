@@ -1,0 +1,5 @@
+_DEFAULT_:
+  tabprefix: "%vault-prefix%"
+  tagprefix: "%vault-prefix%"
+  tabsuffix: "%condition:afk%"
+  tagsuffix: "%condition:afk%"

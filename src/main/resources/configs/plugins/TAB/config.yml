@@ -1,0 +1,36 @@
+header-footer:
+  header:
+  - '&a&lMy &2&lServer'
+  - '&2TPS: &7%server_tps_1%&7/20.0'
+  - '&2MSPT: &7%mspt%'
+  - '&2RAM: &7%server_ram_used%/%server_ram_max% MB'
+  - '&2Online: &7%online%'
+  footer:
+  - '&7temp.srnyx.xyz/mc'
+scoreboard-teams:
+  case-sensitive-sorting: false
+yellow-number-in-tablist:
+  value: '%player_ping%'
+belowname-objective:
+  number: '%health%'
+  text: Health
+scoreboard:
+  enabled: true
+  scoreboards:
+    scoreboard1:
+      title: '&a&lMy &2&lServer'
+      lines:
+      - '%animation:bar%'
+      - '&2Rank: &7%vault_rank%'
+      - '&2Money: &7$%vault_eco_balance_commas%'
+      - '%animation:bar%'
+fix-pet-names:
+  enabled: true
+placeholders:
+  register-tab-expansion: true
+conditions:
+  afk:
+    conditions:
+    - '%essentials_afk%=yes'
+    true: ' &8[&7AFK&8]'
+    false: '%vault_suffix%'

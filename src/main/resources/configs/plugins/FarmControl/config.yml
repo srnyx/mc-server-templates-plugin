@@ -1,0 +1,22 @@
+world-settings:
+  default:
+    profiles:
+      proactive:
+        - animal-farms
+        - trim-animal-farms
+        - villager
+        - enderman
+        - bat
+        - useless
+        - super-useless
+      reactive:
+        - hard-animal-farms
+        - hard-trim-animal-farms
+        - hard-villager
+        - hard-enderman
+        - hard-useless
+        - hard-super-useless
+    exclusion-settings:
+      patrol-leader: true
+      type:
+        - turtle

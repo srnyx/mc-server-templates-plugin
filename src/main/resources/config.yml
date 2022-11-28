@@ -2,27 +2,91 @@
 # DO NOT CHANGE THIS FILE! IT WILL BREAK YOUR SERVER!
 # DO NOT CHANGE THIS FILE! IT WILL BREAK YOUR SERVER!
 
-messages:
-  download: |
-    
-    
-    &a&lThe template is going to attempt to install these plugins:
-    &2%plugins%
-    &a&oIf something goes wrong, you will be notified
+plugins:
+  ConsoleSpamFix:
+    spigot: 18410
+    bukkit: console-spam-fix
+    manual: "https://spigotmc.org/resources/18410"
+  CoreProtect:
+    spigot: 8631
+    bukkit: coreprotect
+    manual: "https://spigotmc.org/resources/8631"
+  DiscordSRV:
+    modrinth: UmLGoGij
+    spigot: 18494
+    bukkit: discordsrv
+    manual: "https://modrinth.com/plugin/UmLGoGij/versions"
+  Essentials:
+    modrinth: hXiIvTyT
+    spigot: 9089
+    bukkit: essentialsx
+    manual: "https://modrinth.com/plugin/hXiIvTyT/versions"
+  EssentialsSpawn:
+    manual: "https://github.com/EssentialsX/Essentials/releases/latest"
+  FarmControl:
+    modrinth: rRqO39TI
+    spigot: 86923
+    manual: "https://modrinth.com/plugin/rRqO39TI/versions"
+  WorldEdit:
+    bukkit: worldedit
+    manual: "https://dev.bukkit.org/projects/worldedit/files"
+  InventoryRollbackPlus:
+    spigot: 85811
+    manual: "https://spigotmc.org/resources/85811"
+  LuckPerms:
+    spigot: 28140
+    manual: "https://spigotmc.org/resources/28140"
+  Multiverse-Core:
+    spigot: 390
+    bukkit: multiverse-core
+    manual: "https://spigotmc.org/resources/390"
+  Multiverse-Inventories:
+    bukkit: multiverse-inventories
+    manual: "https://dev.bukkit.org/projects/multiverse-inventories/files"
+  MyCommand:
+    spigot: 22272
+    bukkit: mycommand
+    manual: "https://spigotmc.org/resources/22272"
+  PlaceholderAPI:
+    spigot: 6245
+    manual: "https://spigotmc.org/resources/6245"
+  PlugManX:
+    spigot: 88135
+    bukkit: plugmanx
+    manual: "https://spigotmc.org/resources/88135"
+  ProtocolLib:
+    external: "https://ci.dmulloy2.net/job/ProtocolLib/lastSuccessfulBuild/artifact/target/ProtocolLib.jar"
+    manual: "https://ci.dmulloy2.net/job/ProtocolLib/lastSuccessfulBuild/artifact/target"
+  spark:
+    spigot: 57242
+    manual: "https://spigotmc.org/resources/57242"
+  TAB:
+    modrinth: gG7VFbG0
+    manual: "https://modrinth.com/plugin/gG7VFbG0/versions"
+  VanillaTweaks:
+    spigot: 81288
+    manual: "https://spigotmc.org/resources/81288"
+  Vault:
+    spigot: 34315
+    bukkit: vault
+    manual: "https://spigotmc.org/resources/34315"
+  VentureChat:
+    spigot: 771
+    manual: "https://spigotmc.org/resources/771"
+  ViewDistanceTweaks:
+    spigot: 75164
+    manual: "https://spigotmc.org/resources/75164"
+  WorldEditSelectionVisualizer:
+    spigot: 17311
+    manual: "https://spigotmc.org/resources/17311"
+  WorldGuard:
+    bukkit: worldguard
+    manual: "https://dev.bukkit.org/projects/worldguard/files"
+  WorldGuardExtraFlags:
+    spigot: 4823
+    manual: "https://spigotmc.org/resources/4823"
 
-  external: |
-    
-    
-    &6&l%plugin%&e&l is not installed!
-    &eYou'll have to manually download it at &6&n%link%&r
-
-  failed: |
-    
-    
-    &4&l%plugin%&c&l failed to install!
-    &cYou'll have to manually download it at &4&n%link%&r
-
-plugins: {}
+files: []
 
 # DO NOT CHANGE THIS FILE! IT WILL BREAK YOUR SERVER!
 # DO NOT CHANGE THIS FILE! IT WILL BREAK YOUR SERVER!

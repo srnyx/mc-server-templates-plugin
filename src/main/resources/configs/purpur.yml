@@ -1,0 +1,11 @@
+settings:
+  use-alternate-keepalive: true
+world-settings:
+  default:
+    mobs:
+      villager:
+        brain-ticks: 2
+        lobotomize:
+          enabled: true
+      zombie:
+        aggressive-towards-villager-when-lagging: false

@@ -1,0 +1,19 @@
+DiscordToMinecraftChatMessageFormat: "&8[&b&lDISC&8] &a%toprolealias%%name% &7» &f%message%%reply%"
+DiscordToMinecraftChatMessageFormatNoRole: "&8[&b&lDISC&8] &a%name% &7» &f%message%%reply%"
+DiscordToMinecraftAllRolesSeparator: " | "
+DiscordToMinecraftMessageReplyFormat: "&8 (replying to %name%)"
+MinecraftPlayerJoinMessage:
+  Embed:
+    timestamp: true
+MinecraftPlayerFirstJoinMessage:
+  Embed:
+    timestamp: true
+MinecraftPlayerLeaveMessage:
+  Embed:
+    timestamp: true
+MinecraftPlayerDeathMessage:
+  Embed:
+    timestamp: true
+MinecraftPlayerAchievementMessage:
+  Embed:
+    timestamp: true

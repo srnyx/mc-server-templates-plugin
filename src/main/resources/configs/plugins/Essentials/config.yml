@@ -1,0 +1,24 @@
+ops-name-color: 'none'
+ignore-colors-in-max-nick-length: true
+force-disable-teleport-safety: true
+teleport-cooldown: 3
+teleport-delay: 3
+teleport-invulnerability: 3
+teleport-to-center: false
+spawnmob-limit: 100
+notify-no-new-mail: false
+disabled-commands:
+  - kill
+  - give
+world-change-fly-reset: false
+world-change-speed-reset: false
+sign-use-per-second: 3
+unsafe-enchantments: true
+spawn-if-no-home: false
+confirm-home-overwrite: true
+starting-balance: 100
+show-zero-baltop: false
+newbies:
+  kit: ''
+respawn-at-home: true
+respawn-at-anchor: true

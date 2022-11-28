@@ -1,5 +1,5 @@
 description = "PluginDownloader"
-version = "1.0.0"
+version = "1.1.0"
 group = "xyz.srnyx"
 
 plugins {
@@ -13,7 +13,6 @@ repositories {
 
 dependencies {
     compileOnly("org.spigotmc", "spigot-api", "1.19.2-R0.1-SNAPSHOT")
-    implementation("org.apache.commons", "commons-text", "1.10.0")
     implementation("org.jetbrains:annotations:23.0.0")
 }
 

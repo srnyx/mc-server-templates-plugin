@@ -1,0 +1,40 @@
+anticheat:
+  anti-xray:
+    enabled: true
+    hidden-blocks:
+    - chest
+    - coal_ore
+    - deepslate_coal_ore
+    - copper_ore
+    - deepslate_copper_ore
+    - raw_copper_block
+    - diamond_ore
+    - deepslate_diamond_ore
+    - emerald_ore
+    - deepslate_emerald_ore
+    - gold_ore
+    - deepslate_gold_ore
+    - iron_ore
+    - deepslate_iron_ore
+    - raw_iron_block
+    - lapis_ore
+    - deepslate_lapis_ore
+    - redstone_ore
+    - deepslate_redstone_ore
+    max-block-height: 100
+chunks:
+  max-auto-save-chunks-per-tick: 16
+  prevent-moving-into-unloaded-chunks: true
+collisions:
+  max-entity-collisions: 4
+entities:
+  spawning:
+    creative-arrow-despawn-rate: 60
+    non-player-arrow-despawn-rate: 60
+environment:
+  optimize-explosions: true
+misc:
+  redstone-implementation: ALTERNATE_CURRENT
+  update-pathfinding-on-block-update: false
+tick-rates:
+  grass-spread: 4
