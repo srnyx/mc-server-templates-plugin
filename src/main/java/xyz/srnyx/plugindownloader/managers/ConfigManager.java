@@ -3,6 +3,7 @@ package xyz.srnyx.plugindownloader.managers;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 import xyz.srnyx.plugindownloader.PluginDownloader;
@@ -16,30 +17,33 @@ import java.util.logging.Level;
 
 public class ConfigManager {
     private final PluginDownloader plugin;
-    private final String path;
-    private final File newFile;
+    private String path;
+    private File newFile;
 
     /**
      * Constructs a new {@link ConfigManager} with the given path
      *
-     * @param   path    the path to the config file
+     * @param   plugin  the {@link PluginDownloader} instance
      */
-    public ConfigManager(@NotNull PluginDownloader plugin, @NotNull String path) {
+    @Contract(pure = true)
+    public ConfigManager(@NotNull PluginDownloader plugin) {
         this.plugin = plugin;
-        this.path = path;
-        this.newFile = new File(PluginDownloader.pluginsFolder.getParent(), path);
     }
 
     /**
      * Initiate download process of the file
+     *
+     * @param   path    the path to the file
      */
-    public void download() {
+    public void download(@NotNull String path) {
         // Get the file's InputStream
         final InputStream stream = getClass().getResourceAsStream("/configs/" + path);
         if (stream == null) {
             PluginDownloader.log(Level.SEVERE, "&4" + path + " &8|&c File not found!");
             return;
         }
+        this.path = path.replace("$world$", plugin.world);
+        this.newFile = new File(PluginDownloader.pluginsFolder.getParent(), path);
 
         // Initiate transfer
         try (final Reader reader = new InputStreamReader(stream)) {
@@ -79,7 +83,7 @@ public class ConfigManager {
         final YamlConfiguration serverFile = YamlConfiguration.loadConfiguration(newFile);
         for (final String key : jarFile.getKeys(true)) {
             final Object value = jarFile.get(key);
-            if (!(value instanceof ConfigurationSection)) serverFile.set(key, value);
+            if (!(value instanceof ConfigurationSection)) serverFile.set(key.replace("$world$", plugin.world), value);
         }
         serverFile.save(newFile);
         finish();
@@ -100,7 +104,7 @@ public class ConfigManager {
         try (final FileInputStream input = new FileInputStream(newFile);
              final FileOutputStream output = new FileOutputStream(newFile)) {
             serverFile.load(input);
-            jarFile.stringPropertyNames().forEach(key -> serverFile.setProperty(key, jarFile.getProperty(key)));
+            jarFile.stringPropertyNames().forEach(key -> serverFile.setProperty(key.replace("$world$", plugin.world), jarFile.getProperty(key)));
             serverFile.store(output, null);
             finish();
         }

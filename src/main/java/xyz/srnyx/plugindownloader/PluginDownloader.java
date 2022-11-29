@@ -35,6 +35,7 @@ public class PluginDownloader extends JavaPlugin {
     public static File pluginsFolder;
 
     public List<String> files;
+    public String world;
 
     /**
      * Called when this plugin is enabled
@@ -54,8 +55,9 @@ public class PluginDownloader extends JavaPlugin {
         // Get config
         saveDefaultConfig();
         config = getConfig();
-        files = config.getStringList("files");
         pluginsFolder = new File(getDataFolder().getParent());
+        files = config.getStringList("files");
+        world = Bukkit.getWorlds().get(0).getName();
 
         // Get plugins list
         final ConfigurationSection section = config.getConfigurationSection("plugins");
@@ -98,7 +100,7 @@ public class PluginDownloader extends JavaPlugin {
                     while ((entry = zip.getNextEntry()) != null) {
                         String path = entry.getName();
                         if (!path.endsWith("/") && path.startsWith("configs/")) {
-                            path = path.replaceFirst("configs/", "");
+                            path = path.substring(8);
                             if (!files.contains(path)) paths.add(path);
                         }
                     }
@@ -108,7 +110,7 @@ public class PluginDownloader extends JavaPlugin {
 
                 // Download files
                 if (!paths.isEmpty()) {
-                    paths.forEach(path -> new ConfigManager(PluginDownloader.this, path).download());
+                    paths.forEach(path -> new ConfigManager(PluginDownloader.this).download(path));
                     config.set("files", files);
                     try {
                         config.save(new File(getDataFolder(), "config.yml"));
