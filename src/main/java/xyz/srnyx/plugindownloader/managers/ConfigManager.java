@@ -36,14 +36,13 @@ public class ConfigManager {
      * @param   path    the path to the file
      */
     public void download(@NotNull String path) {
-        // Get the file's InputStream
         final InputStream stream = getClass().getResourceAsStream("/configs/" + path);
+        this.path = (path = path.replace("$world$", plugin.world));
+        this.newFile = new File(PluginDownloader.pluginsFolder.getParent(), path);
         if (stream == null) {
             PluginDownloader.log(Level.SEVERE, "&4" + path + " &8|&c File not found!");
             return;
         }
-        this.path = path.replace("$world$", plugin.world);
-        this.newFile = new File(PluginDownloader.pluginsFolder.getParent(), path);
 
         // Initiate transfer
         try (final Reader reader = new InputStreamReader(stream)) {
@@ -78,7 +77,6 @@ public class ConfigManager {
      * @throws  IOException if an I/O error occurs
      */
     private void yml(@NotNull Reader reader) throws IOException {
-        if (!newFile.exists()) return;
         final YamlConfiguration jarFile = YamlConfiguration.loadConfiguration(reader);
         final YamlConfiguration serverFile = YamlConfiguration.loadConfiguration(newFile);
         for (final String key : jarFile.getKeys(true)) {
@@ -97,7 +95,6 @@ public class ConfigManager {
      * @throws  IOException if an I/O error occurs
      */
     private void properties(@NotNull Reader reader) throws IOException {
-        if (!newFile.exists()) return;
         final Properties jarFile = new Properties();
         final Properties serverFile = new Properties();
         jarFile.load(reader);

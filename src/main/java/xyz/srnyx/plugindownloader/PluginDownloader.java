@@ -117,7 +117,7 @@ public class PluginDownloader extends JavaPlugin {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    log(Level.INFO, "\n&a&lAll &2&l" + paths.size() + "&a&l files have been downloaded!\n&aPlease restart the server.");
+                    log(Level.INFO, "\n&a&lAll &2&l" + paths.size() + "&a&l files have been processed!\n&aPlease resolve any errors and then restart the server.");
                     return;
                 }
                 log(Level.INFO, "&aAll files are downloaded!");

@@ -4,4 +4,4 @@ description: Plugin used for mc-server-templates repository
 
 main: xyz.srnyx.plugindownloader.PluginDownloader
 version: ${version}
-api-version: 1.19
+api-version: 1.16

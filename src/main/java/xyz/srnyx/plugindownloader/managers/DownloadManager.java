@@ -173,7 +173,7 @@ public class DownloadManager {
                     .uri(URI.create(url))
                     .build(), HttpResponse.BodyHandlers.ofString());
             if (response.statusCode() == 404) return null;
-            return JsonParser.parseString(response.body());
+            return new JsonParser().parse(response.body());
         } catch (final IOException e) {
             return null;
         } catch (final InterruptedException e) {
@@ -219,6 +219,6 @@ public class DownloadManager {
      */
     private void finish() {
         remaining--;
-        if (remaining == 0) PluginDownloader.log(Level.INFO, "\n&a&lAll &2&l" + total + "&a&l plugins have been processed!\n&aPlease download any manual ones and then restart the server.");
+        if (remaining == 0) PluginDownloader.log(Level.INFO, "\n&a&lAll &2&l" + total + "&a&l plugins have been processed!\n&aPlease resolve any errors and then restart the server.");
     }
 }
