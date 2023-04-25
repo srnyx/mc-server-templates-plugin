@@ -1,1 +1,1 @@
-rootProject.name = "PluginDownloader"
+rootProject.name = "MCServerTemplates"

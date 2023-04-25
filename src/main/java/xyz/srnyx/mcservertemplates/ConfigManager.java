@@ -1,12 +1,10 @@
-package xyz.srnyx.plugindownloader.managers;
+package xyz.srnyx.mcservertemplates;
 
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
-
-import xyz.srnyx.plugindownloader.PluginDownloader;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -16,17 +14,17 @@ import java.util.logging.Level;
 
 
 public class ConfigManager {
-    private final PluginDownloader plugin;
+    private final MCServerTemplates plugin;
     private String path;
     private File newFile;
+    private final String world = Bukkit.getWorlds().get(0).getName();
 
     /**
      * Constructs a new {@link ConfigManager} with the given path
      *
-     * @param   plugin  the {@link PluginDownloader} instance
+     * @param   plugin  the {@link MCServerTemplates} instance
      */
-    @Contract(pure = true)
-    public ConfigManager(@NotNull PluginDownloader plugin) {
+    public ConfigManager(@NotNull MCServerTemplates plugin) {
         this.plugin = plugin;
     }
 
@@ -37,10 +35,10 @@ public class ConfigManager {
      */
     public void download(@NotNull String path) {
         final InputStream stream = getClass().getResourceAsStream("/configs/" + path);
-        this.path = (path = path.replace("$world$", plugin.world));
-        this.newFile = new File(PluginDownloader.pluginsFolder.getParent(), path);
+        this.path = (path = path.replace("$world$", world));
+        this.newFile = new File(plugin.getDataFolder().getParentFile().getParentFile(), path);
         if (stream == null) {
-            PluginDownloader.log(Level.SEVERE, "&4" + path + " &8|&c File not found!");
+            plugin.log(Level.SEVERE, "&4" + path + " &8|&c File not found!");
             return;
         }
 
@@ -65,7 +63,7 @@ public class ConfigManager {
             Files.delete(configs.toPath());
             finish();
         } catch (IOException e) {
-            PluginDownloader.log(Level.SEVERE, "&4" + path + " &8|&c Failed to download file!");
+            plugin.log(Level.SEVERE, "&4" + path + " &8|&c Failed to download file!");
         }
     }
 
@@ -81,7 +79,7 @@ public class ConfigManager {
         final YamlConfiguration serverFile = YamlConfiguration.loadConfiguration(newFile);
         for (final String key : jarFile.getKeys(true)) {
             final Object value = jarFile.get(key);
-            if (!(value instanceof ConfigurationSection)) serverFile.set(key.replace("$world$", plugin.world), value);
+            if (!(value instanceof ConfigurationSection)) serverFile.set(key.replace("$world$", world), value);
         }
         serverFile.save(newFile);
         finish();
@@ -101,7 +99,7 @@ public class ConfigManager {
         try (final FileInputStream input = new FileInputStream(newFile);
              final FileOutputStream output = new FileOutputStream(newFile)) {
             serverFile.load(input);
-            jarFile.stringPropertyNames().forEach(key -> serverFile.setProperty(key.replace("$world$", plugin.world), jarFile.getProperty(key)));
+            jarFile.stringPropertyNames().forEach(key -> serverFile.setProperty(key.replace("$world$", world), jarFile.getProperty(key)));
             serverFile.store(output, null);
             finish();
         }
@@ -111,7 +109,7 @@ public class ConfigManager {
      * Finishes the download process
      */
     private void finish() {
-        PluginDownloader.log(Level.INFO, "&2" + path + " &8|&a File downloaded!");
+        plugin.log(Level.INFO, "&2" + path + " &8|&a File downloaded!");
         plugin.files.add(path);
     }
 }

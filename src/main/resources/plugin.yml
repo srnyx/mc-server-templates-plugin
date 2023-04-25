@@ -1,7 +1,8 @@
-name: PluginDownloader
-author: srnyx
-description: Plugin used for mc-server-templates repository
+name: ${name}
+description: "Plugin used for srnyx's mc-server-templates repository"
+authors:
+  - srnyx
+website: https://srnyx.com
 
-main: xyz.srnyx.plugindownloader.PluginDownloader
+main: xyz.srnyx.mcservertemplates.MCServerTemplates
 version: ${version}
-api-version: 1.16

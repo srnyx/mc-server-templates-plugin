@@ -1,36 +1,68 @@
-description = "PluginDownloader"
 version = "1.1.2"
 group = "xyz.srnyx"
 
 plugins {
     java
+    id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 repositories {
-    maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/") // org.spigotmc:spigot-api
-    maven("https://oss.sonatype.org/content/repositories/snapshots/") // org.spigotmc:spigot-api
     mavenCentral() // org.spigotmc:spigot-api
+    maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots") // org.spigotmc:spigot-api
+    maven("https://oss.sonatype.org/content/repositories/snapshots") // org.spigotmc:spigot-api
+    maven("https://jitpack.io") // xyz.srnyx:annoying-api
 }
 
 dependencies {
-    compileOnly("org.spigotmc", "spigot-api", "1.16.5-R0.1-SNAPSHOT")
-    compileOnly("org.jetbrains", "annotations", "23.0.0")
+    compileOnly("org.spigotmc", "spigot-api", "1.11-R0.1-SNAPSHOT")
+    implementation("xyz.srnyx", "annoying-api", "2.1.1")
+    compileOnly("org.jetbrains", "annotations", "24.0.0")
 }
 
+// Java version
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 tasks {
+    // Make 'gradle build' run 'gradle shadowJar'
+    build {
+        dependsOn("shadowJar")
+    }
+
+    // Remove '-all' from the JAR file name, relocate the AnnoyingAPI package, and clean up the build folder
+    shadowJar {
+        archiveClassifier.set("")
+        relocate("xyz.srnyx.annoyingapi", "xyz.srnyx.mcservertemplates.annoyingapi")
+        doLast {
+			// Delete all folders in the build directory besides libs
+			file("build").listFiles()?.forEach {
+				if (it.isDirectory && it.name != "libs") it.deleteRecursively()
+			}
+        }
+    }
+
+    // Text encoding
     compileJava {
         options.encoding = "UTF-8"
     }
 
+    // Replace '${name}' and '${version}'
     processResources {
-        inputs.property("version", project.version)
+        inputs.property("name", project.name)
+        inputs.property("version", version)
         filesMatching("**/plugin.yml") {
-            expand("version" to project.version)
+            expand("name" to project.name, "version" to version)
         }
     }
+
+    // Disable unnecessary tasks
+    classes { enabled = false }
+    jar { enabled = false }
+    compileTestJava { enabled = false }
+    processTestResources { enabled = false }
+    testClasses { enabled = false }
+    test { enabled = false }
+    check { enabled = false }
 }
