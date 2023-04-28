@@ -15,7 +15,7 @@ repositories {
 
 dependencies {
     compileOnly("org.spigotmc", "spigot-api", "1.11-R0.1-SNAPSHOT")
-    implementation("xyz.srnyx", "annoying-api", "2.1.1")
+    implementation("xyz.srnyx", "annoying-api", "2.1.2")
     compileOnly("org.jetbrains", "annotations", "24.0.0")
 }
 
